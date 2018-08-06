@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">Welcome to Github Users Search</h2>
+            <br><br>
+            <form action="" class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="username" placeholder="Enter Username here...">
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+            {% endif %}
+            {% if user %}
+                <div class="bg-info well">
+                    {{ user }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
